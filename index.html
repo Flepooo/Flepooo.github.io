@@ -78,6 +78,9 @@
   .logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
   .logo .wordmark { font-weight: 700; letter-spacing: .01em; text-align: center; font-size: 1rem; }
   .logo .now { position: absolute; top: 8px; right: 8px; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: #22a06b; }
+  .about { max-width: 42em; font-size: 1.1rem; }
+  .about p { margin: 0 0 10px; }
+  .about b { color: var(--accent); }
   .note { color: var(--muted); font-size: .92rem; margin: 14px 0 0; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo:not([data-bg="dark"]) img { background: #fff; border-radius: 8px; padding: 6px; } }
 
@@ -156,6 +159,7 @@
   <div class="wrap">
     <a class="brand" href="#top">Mohamed Hesham</a>
     <ul>
+      <li><a href="#about">About</a></li>
       <li><a href="#companies">Companies</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -180,12 +184,18 @@
       </div>
     </div>
     <div class="stats">
-      <div class="stat"><b>7</b><span>companies worked with</span></div>
-      <div class="stat"><b>1,000+</b><span>students on IG Hub in under 3 months</span></div>
-      <div class="stat"><b>6</b><span>featured live products</span></div>
       <div class="stat"><b>4 markets</b><span>Egypt · KSA · UAE · Qatar</span></div>
     </div>
   </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="about">
+      <p>👋 Hi, I'm Mohamed Hesham, also known as <b>@flepooo</b>.</p>
+      <p>👀 I'm a Computer Science graduate who loves creating new software solutions that make human life better and easier.</p>
+      <p>💞 I believe programming is the genie that will solve our problems, and I'm willing to tame that genie.</p>
+    </div>
+  </section>
 
   <section id="companies">
     <h2>Companies I've worked with</h2>
