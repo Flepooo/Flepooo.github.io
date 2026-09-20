@@ -4,153 +4,402 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mohamed Hesham – Software Engineer</title>
-<meta name="description" content="Resume of Mohamed Hesham, Software Engineer based in Alexandria, Egypt.">
+<meta name="description" content="Mohamed Hesham, Software Engineer in Alexandria, Egypt. Full-stack web platforms, POS systems and e-commerce for clients across Egypt, Saudi Arabia, the UAE and Qatar.">
 <style>
   :root {
-    --bg: #f4f4f2;
-    --paper: #ffffff;
-    --ink: #1c1c1e;
-    --muted: #5f6368;
-    --accent: #1a56db;
-    --rule: #dcdcd8;
+    --bg: #f6f5f1;
+    --surface: #ffffff;
+    --ink: #17181a;
+    --muted: #62666d;
+    --rule: #e2e0d8;
+    --accent: #2f4bff;
+    --accent-soft: #e9ecff;
+    --radius: 14px;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #151515; --paper: #1f1f21; --ink: #ececec; --muted: #a0a3a8; --accent: #7aa7ff; --rule: #34343a; }
+    :root:not([data-theme="light"]) {
+      --bg: #101113; --surface: #18191c; --ink: #f0efea; --muted: #9a9ea6;
+      --rule: #2a2c31; --accent: #8fa2ff; --accent-soft: #23264a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101113; --surface: #18191c; --ink: #f0efea; --muted: #9a9ea6;
+    --rule: #2a2c31; --accent: #8fa2ff; --accent-soft: #23264a;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    margin: 0; padding: 32px 16px;
-    background: var(--bg); color: var(--ink);
-    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
-  .page {
-    max-width: 820px; margin: 0 auto; padding: 48px 52px;
-    background: var(--paper); border: 1px solid var(--rule); border-radius: 6px;
-  }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  header { padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
-  h1 { margin: 0; font-size: 2rem; letter-spacing: .04em; }
-  .role { margin: 2px 0 10px; color: var(--accent); font-weight: 600; letter-spacing: .12em; font-size: .85rem; }
-  .contact { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .9rem; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0 8px; }
   h2 {
-    margin: 26px 0 10px; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 4px;
+    margin: 0 0 24px; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 650; display: flex; align-items: center; gap: 14px;
   }
-  p { margin: 0 0 8px; }
-  .entry { margin-bottom: 16px; }
-  .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
-  .title { font-weight: 650; }
-  .meta { color: var(--muted); font-size: .88rem; }
-  ul { margin: 6px 0 0; padding-left: 20px; }
-  li { margin-bottom: 3px; }
-  .skills { list-style: none; padding: 0; }
-  .skills li { display: grid; grid-template-columns: 190px 1fr; gap: 12px; }
-  .skills b { font-weight: 600; }
-  @media (max-width: 640px) {
-    .page { padding: 28px 20px; }
-    .skills li { grid-template-columns: 1fr; gap: 0; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .brand { font-weight: 700; text-decoration: none; letter-spacing: .02em; }
+  nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: .92rem; color: var(--muted); }
+  nav a { text-decoration: none; }
+  nav ul a:hover { color: var(--ink); }
+
+  /* hero */
+  .hero { padding: 72px 0 24px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+  .status { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted); border: 1px solid var(--rule); background: var(--surface); padding: 5px 12px; border-radius: 999px; }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: #22a06b; box-shadow: 0 0 0 4px rgba(34,160,107,.18); }
+  h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; margin: 18px 0 14px; letter-spacing: -.02em; }
+  h1 span { color: var(--accent); }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 34em; margin: 0 0 24px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); text-decoration: none; font-weight: 600; font-size: .95rem; cursor: pointer; font-family: inherit; color: inherit; }
+  .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn:hover { border-color: var(--accent); }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
+  .stat b { display: block; font-size: 2rem; line-height: 1.1; letter-spacing: -.02em; }
+  .stat span { color: var(--muted); font-size: .88rem; }
+
+  /* companies */
+  .logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .logo {
+    height: 84px; display: flex; align-items: center; justify-content: center; padding: 14px;
+    background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius);
+    text-decoration: none; position: relative; transition: transform .15s, border-color .15s;
   }
-  .print-btn {
-    position: fixed; right: 16px; bottom: 16px; padding: 10px 16px; border: 0; border-radius: 999px;
-    background: var(--accent); color: #fff; font: inherit; font-weight: 600; cursor: pointer;
+  .logo:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .logo[data-bg="dark"] { background: #16181d; }
+  .logo[data-logo="ooc"] img { max-width: 62%; max-height: 62%; }
+  .logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .logo .wordmark { font-weight: 700; letter-spacing: .01em; text-align: center; font-size: 1rem; }
+  .logo .now { position: absolute; top: 8px; right: 8px; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: #22a06b; }
+  .note { color: var(--muted); font-size: .92rem; margin: 14px 0 0; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo:not([data-bg="dark"]) img { background: #fff; border-radius: 8px; padding: 6px; } }
+
+  /* projects */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .chip-btn { border: 1px solid var(--rule); background: var(--surface); color: var(--muted); padding: 6px 14px; border-radius: 999px; font: inherit; font-size: .88rem; cursor: pointer; }
+  .chip-btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; }
+  .card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  .card[hidden] { display: none; }
+  .shot { aspect-ratio: 16 / 9; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .shot .mono { font-size: 2.6rem; font-weight: 800; color: rgba(255,255,255,.92); letter-spacing: -.02em; }
+  .card .body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .card h3 { margin: 0; font-size: 1.15rem; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .card h3 small { font-size: .74rem; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .card ul.points { margin: 0; padding-left: 18px; color: var(--muted); font-size: .92rem; }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+  .stack li { list-style: none; font-size: .78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .stack { padding-left: 0; margin-bottom: 0; }
+  .visit { font-size: .9rem; font-weight: 600; text-decoration: none; color: var(--accent); }
+  .visit:hover { text-decoration: underline; }
+  .more { margin-top: 18px; padding: 18px 20px; border: 1px dashed var(--rule); border-radius: var(--radius); color: var(--muted); }
+  .more b { color: var(--ink); }
+
+  /* experience */
+  .timeline { border-left: 2px solid var(--rule); margin-left: 6px; padding-left: 26px; display: grid; gap: 26px; }
+  .job { position: relative; }
+  .job::before { content: ""; position: absolute; left: -33px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+  .job.current::before { background: var(--accent); }
+  .job .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; }
+  .job .role { font-weight: 700; }
+  .job .when { color: var(--muted); font-size: .9rem; }
+  .job ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); }
+  .job li { margin-bottom: 2px; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .skill { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
+  .skill h3 { margin: 0 0 10px; font-size: .95rem; }
+  .skill .stack { margin: 0; }
+
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+  .two h3 { margin: 0 0 4px; font-size: 1rem; }
+  .two .meta { color: var(--muted); font-size: .9rem; margin-bottom: 14px; }
+  .two ul { padding-left: 18px; margin: 0; color: var(--muted); }
+
+  footer { padding: 56px 0 64px; color: var(--muted); font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; border-top: 1px solid var(--rule); padding-top: 24px; }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; padding-top: 44px; }
+    nav ul { display: none; }
   }
+
   @media print {
     @page { size: A4; margin: 12mm; }
-    body { background: #fff; color: #000; padding: 0; font-size: 10.5pt; }
-    .page { border: 0; padding: 0; max-width: none; background: #fff; }
-    :root { --ink: #000; --muted: #444; --accent: #1a56db; --rule: #ccc; }
-    .print-btn { display: none; }
-    .entry { break-inside: avoid; }
+    :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --rule: #ccc; --accent: #1a3bd8; --accent-soft: #eef0ff; }
+    body { font-size: 10pt; }
+    nav, .cta, .filters, footer, .shot, .visit, .logo .now { display: none !important; }
+    section { padding-top: 18px; break-inside: auto; }
+    .hero { padding: 0; grid-template-columns: 1fr; }
+    h1 { font-size: 26pt; margin: 6px 0; }
+    .stats { display: none; }
+    .card, .job, .skill, .logo { break-inside: avoid; }
+    .card[hidden] { display: flex; }
+    .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .card .body { padding: 10px; }
   }
 </style>
 </head>
 <body>
-<main class="page">
-  <header>
-    <h1>MOHAMED HESHAM</h1>
-    <p class="role">SOFTWARE ENGINEER</p>
-    <ul class="contact">
-      <li><a href="mailto:mohamedhesham@gmail.com">mohamedhesham@gmail.com</a></li>
-      <li><a href="tel:+201285203642">+20 128 520 3642</a></li>
-      <li>Alexandria, Egypt</li>
-      <li><a href="#" id="linkedin">LinkedIn</a></li>
-      <li><a href="https://github.com/Flepooo">GitHub</a></li>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Mohamed Hesham</a>
+    <ul>
+      <li><a href="#companies">Companies</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <header class="hero">
+    <div>
+      <span class="status"><i></i> Full-time at ClarityForce · Open to big projects</span>
+      <h1>Software engineer building <span>platforms people actually use.</span></h1>
+      <p class="lead">Full-stack developer from Alexandria, Egypt. I build e-commerce stores, POS systems and learning platforms, and connect them into one working system for clients across Egypt, Saudi Arabia, the UAE and Qatar.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:mohamedhesham@gmail.com">Get in touch</a>
+        <a class="btn" href="https://github.com/Flepooo">GitHub</a>
+        <a class="btn" href="#" id="linkedin">LinkedIn</a>
+        <button class="btn" onclick="window.print()">Save as PDF</button>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>7</b><span>companies worked with</span></div>
+      <div class="stat"><b>1,000+</b><span>students on IG Hub in under 3 months</span></div>
+      <div class="stat"><b>6</b><span>featured live products</span></div>
+      <div class="stat"><b>4 markets</b><span>Egypt · KSA · UAE · Qatar</span></div>
+    </div>
   </header>
 
-  <section>
-    <h2>Summary</h2>
-    <p>Computer Science student who loves building software that makes people's lives better and easier. I believe programming is the genie that can solve our problems, and I'm willing to tame it.</p>
+  <section id="companies">
+    <h2>Companies I've worked with</h2>
+    <div class="logos">
+      <a class="logo" href="https://clarityforce.sa/" target="_blank" rel="noopener" data-logo="clarityforce" data-name="ClarityForce"><span class="now">Now</span></a>
+      <a class="logo" href="https://www.pimula.net/" target="_blank" rel="noopener" data-logo="pimula" data-name="Pimula"></a>
+      <a class="logo" href="https://voktech.com/" target="_blank" rel="noopener" data-logo="voktech" data-name="VokTech"></a>
+      <a class="logo" href="https://ooc-consulting.com/" target="_blank" rel="noopener" data-logo="ooc" data-bg="dark" data-name="OOC Consulting"></a>
+      <a class="logo" href="https://visionarabia.net/" target="_blank" rel="noopener" data-logo="visionarabia" data-bg="dark" data-name="Vision Arabia"></a>
+      <a class="logo" data-logo="ginie" data-bg="dark" data-name="Ginie Media"></a>
+    </div>
+    <p class="note">Plus outsourced work for agencies that bring me in when a project gets big.</p>
   </section>
 
-  <section>
+  <section id="projects">
+    <h2>Selected projects</h2>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="chip-btn" aria-pressed="true" data-f="all">All</button>
+      <button class="chip-btn" aria-pressed="false" data-f="ecommerce">E-commerce</button>
+      <button class="chip-btn" aria-pressed="false" data-f="platform">Platforms</button>
+      <button class="chip-btn" aria-pressed="false" data-f="pos">POS &amp; automation</button>
+    </div>
+
+    <div class="grid">
+      <article class="card" data-cat="platform">
+        <div class="shot" style="background:linear-gradient(135deg,#dc2626,#ea580c)"><span class="mono">CK</span><img src="assets/projects/circlek.png" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3>Circle K Egypt <small>Retail</small></h3>
+          <p>Built the website for Circle K Egypt, a very well-known convenience-store brand.</p>
+          <ul class="stack"><li>Corporate website</li><li>Responsive</li></ul>
+          <a class="visit" href="https://circlekegypt.com/" target="_blank" rel="noopener">circlekegypt.com ↗</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="pos ecommerce">
+        <div class="shot" style="background:linear-gradient(135deg,#ff8a4c,#e0457b)"><span class="mono">MP</span><img src="assets/projects/mypet.png" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3>My Pet <small>Pet store</small></h3>
+          <p>Built the complete POS for the store alongside its e-commerce website, then connected everything together so stock and orders stay in sync.</p>
+          <ul class="stack"><li>POS system</li><li>E-commerce</li><li>JavaScript</li><li>System integration</li></ul>
+          <a class="visit" href="https://mypet-eg.com/" target="_blank" rel="noopener">mypet-eg.com ↗</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="platform pos">
+        <div class="shot" style="background:linear-gradient(135deg,#0f766e,#164e63)"><span class="mono">F</span><img src="assets/projects/fitting.png" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3>Fitting <small>Startup</small></h3>
+          <p>Rebuilt the startup's older site as a modern building-materials marketplace and helped automate their internal systems.</p>
+          <ul class="stack"><li>Next.js</li><li>React</li><li>Vercel</li><li>Automation</li></ul>
+          <a class="visit" href="https://fitting.sa/" target="_blank" rel="noopener">fitting.sa ↗</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="ecommerce">
+        <div class="shot" style="background:linear-gradient(135deg,#1c1917,#78716c)"><span class="mono">NW</span><img src="assets/projects/nurwear.png" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3>Nur Wear <small>Fashion</small></h3>
+          <p>An online store for an independent fashion designer, built to showcase and sell her designs.</p>
+          <ul class="stack"><li>Shopify</li><li>Custom theme</li><li>E-commerce</li></ul>
+          <a class="visit" href="https://nur-wear.com/" target="_blank" rel="noopener">nur-wear.com ↗</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="platform">
+        <div class="shot" style="background:linear-gradient(135deg,#4338ca,#7c3aed)"><span class="mono">IG</span><img src="assets/projects/ighub.png" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3>IG Hub <small>Learning</small></h3>
+          <p>A full online learning platform. It now serves 1,000+ students and their parents, reached in less than three months.</p>
+          <ul class="stack"><li>WordPress</li><li>Elementor</li><li>LMS</li></ul>
+          <a class="visit" href="https://ighub.online/" target="_blank" rel="noopener">ighub.online ↗</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="ecommerce">
+        <div class="shot" style="background:linear-gradient(135deg,#db2777,#f59e0b)"><span class="mono">SL</span><img src="assets/projects/slimsh.png" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3>Slimsh <small>Distributor</small></h3>
+          <p>A large e-commerce platform for a beauty and personal-care distributor.</p>
+          <ul class="stack"><li>Salla</li><li>E-commerce</li><li>Storefront customization</li></ul>
+          <a class="visit" href="https://slimsh.com/" target="_blank" rel="noopener">slimsh.com ↗</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="more"><b>And many more.</b> I've also delivered dozens of websites for local service businesses across the region. Happy to share more on request.</div>
+  </section>
+
+  <section id="experience">
     <h2>Experience</h2>
-    <div class="entry">
-      <div class="row"><span class="title">Full-Stack Developer · Pimula Agency</span><span class="meta">Jun 2022 – Sep 2022 · Alexandria, Egypt</span></div>
-      <ul>
-        <li>Implemented server-side logic and APIs with Node.js and the NestJS framework.</li>
-        <li>Tested and validated software components to ensure reliability and quality.</li>
-        <li>Managed WordPress updates, security and performance optimization for client websites.</li>
-        <li>Developed custom WordPress themes and plugins to meet client requirements.</li>
-        <li>Collaborated with designers, content creators and project managers to deliver websites on schedule.</li>
-        <li><b>Highlighted projects:</b> Circle K, Charmillion.</li>
-      </ul>
-    </div>
-    <div class="entry">
-      <div class="row"><span class="title">Intern · PIXB Agency</span><span class="meta">Jan 2020 – Jan 2021 · Alexandria, Egypt</span></div>
-      <ul>
-        <li>Worked with a team of developers to design and implement software solutions.</li>
-        <li>Tested and validated software components to ensure reliability and quality.</li>
-        <li>Took part in code reviews, giving constructive feedback to improve code quality.</li>
-        <li><b>Highlighted projects:</b> SetElsham, Ranchhouses.</li>
-      </ul>
+    <div class="timeline">
+      <div class="job current">
+        <div class="top"><span class="role">Software Developer · ClarityForce</span><span class="when">Present · Full-time</span></div>
+        <ul>
+          <li>Part of ClarityForce, a startup accelerator and incubator, building software for the startups it backs.</li>
+        </ul>
+      </div>
+      <div class="job current">
+        <div class="top"><span class="role">Software Developer · OOC Consulting</span><span class="when">Apr 2025 – Present · Full-time</span></div>
+        <div class="when">Riyadh, Saudi Arabia · Remote</div>
+        <ul>
+          <li>Part of the team building business-oriented and financial accounting software that solves real-world problems.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><span class="role">Freelance &amp; outsourced engineer</span><span class="when">Ongoing</span></div>
+        <ul>
+          <li>Brought in by agencies such as Vision Arabia and others when projects get big.</li>
+          <li>Deliver end to end: websites, stores, POS systems and integrations.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><span class="role">Full-Stack Developer · Ginie Media</span><span class="when">Apr 2024 – Jul 2024</span></div>
+        <ul>
+          <li>Built and optimized web applications with responsive, mobile-friendly design; automated deployment pipelines to speed up releases.</li>
+          <li>Mentored junior developers.</li>
+          <li>Cut application load time by 25%, lifting user retention by 20%; delivered 8+ high-impact projects.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><span class="role">Full-Stack Developer · Voktech</span><span class="when">Jun 2023 – Mar 2024</span></div>
+        <ul>
+          <li>Designed, built and maintained full-stack apps with React.js, Node.js and MySQL; ran code reviews and set quality practices.</li>
+          <li>Launched <a href="https://nur-wear.com/" target="_blank" rel="noopener">Nur-wear.com</a>, an e-commerce platform that generated over 1M QAR in sales within its first few months.</li>
+          <li>Cut page load time by 30% across major projects; delivered 10+ web applications on time and on budget with 95% client satisfaction.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><span class="role">Software Developer Intern · Pimula</span><span class="when">Jun 2022 – Sep 2022</span></div>
+        <ul>
+          <li>Built server-side logic and APIs with Node.js and NestJS; managed WordPress updates, security and performance.</li>
+          <li>Highlighted projects: Circle K, Charmillion.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><span class="role">Software Developer Intern · PIX.B</span><span class="when">Jan 2020 – Jan 2021</span></div>
+        <ul>
+          <li>Worked with a team to design and implement software solutions, tested components and took part in code reviews.</li>
+          <li>Highlighted projects: SetElsham, Ranchhouses.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Education</h2>
-    <div class="entry">
-      <div class="row"><span class="title">Suez Canal University</span><span class="meta">2020 – Present · Ismailia, Egypt</span></div>
-      <div>Engineer's degree, Computer Science</div>
-    </div>
-  </section>
-
-  <section>
+  <section id="skills">
     <h2>Skills</h2>
-    <ul class="skills">
-      <li><b>Programming languages</b><span>C++, JavaScript, TypeScript</span></li>
-      <li><b>Web development</b><span>HTML, CSS, React, Next.js, Node.js, NestJS, WordPress</span></li>
-      <li><b>Databases</b><span>SQL, MySQL, MongoDB (NoSQL)</span></li>
-      <li><b>Workflow</b><span>Agile methodologies, Git</span></li>
-      <li><b>Problem solving</b><span>Analytical and critical thinking to resolve complex software issues</span></li>
-      <li><b>Communication</b><span>Strong verbal and written skills; experienced in cross-functional teams</span></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Organizations</h2>
-    <div class="entry">
-      <div class="row"><span class="title">SCU GDSC (Google Developer Student Club) · Organizer, Back-End Team</span><span class="meta">Dec 2022 – Present</span></div>
-    </div>
-    <div class="entry">
-      <div class="row"><span class="title">ICPC Suez Canal University Community · Trainer</span><span class="meta">Jan 2021 – Present</span></div>
+    <div class="skills">
+      <div class="skill"><h3>Languages</h3><ul class="stack"><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>C#</li><li>C++</li></ul></div>
+      <div class="skill"><h3>Front-end</h3><ul class="stack"><li>React</li><li>Next.js</li><li>React Native</li><li>Tailwind CSS</li><li>Bootstrap</li><li>jQuery</li><li>HTML / CSS</li></ul></div>
+      <div class="skill"><h3>Back-end</h3><ul class="stack"><li>Node.js</li><li>NestJS</li><li>Laravel</li><li>.NET</li></ul></div>
+      <div class="skill"><h3>Databases</h3><ul class="stack"><li>MySQL</li><li>MongoDB</li><li>Supabase</li><li>Firebase</li><li>SQLite</li></ul></div>
+      <div class="skill"><h3>Platforms</h3><ul class="stack"><li>WordPress</li><li>Elementor</li><li>Shopify</li><li>Salla</li></ul></div>
+      <div class="skill"><h3>Ways of working</h3><ul class="stack"><li>Agile</li><li>Git</li><li>Code review</li><li>System automation</li></ul></div>
     </div>
   </section>
 
   <section>
-    <h2>Certifications</h2>
-    <ul>
-      <li>JavaScript Algorithms and Data Structures</li>
-      <li>Responsive Web Design</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Languages</h2>
-    <p>Arabic – Native · English – Fluent</p>
+    <h2>Education &amp; community</h2>
+    <div class="two">
+      <div>
+        <h3>Suez Canal University</h3>
+        <div class="meta">Engineer's degree, Computer Science · 2020 – Present</div>
+        <h3>Certifications</h3>
+        <ul><li>JavaScript Algorithms and Data Structures</li><li>Responsive Web Design</li></ul>
+      </div>
+      <div>
+        <h3>SCU GDSC (Google Developer Student Club)</h3>
+        <div class="meta">Organizer, Back-End Team · Dec 2022 – Present</div>
+        <h3>ICPC Suez Canal University Community</h3>
+        <div class="meta">Trainer · Jan 2021 – Present</div>
+        <h3>Languages</h3>
+        <div class="meta">Arabic (native) · English (fluent)</div>
+      </div>
+    </div>
   </section>
 </main>
-<button class="print-btn" onclick="window.print()">Save as PDF</button>
+
+<footer id="contact">
+  <div class="wrap">
+    <span>Alexandria, Egypt · <a href="mailto:mohamedhesham@gmail.com">mohamedhesham@gmail.com</a> · <a href="tel:+201285203642">+20 128 520 3642</a></span>
+    <span>© <span id="yr"></span> Mohamed Hesham</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Company logos: try assets/logos/<slug>.svg, then .png, .webp, .jpg; fall back to a text wordmark.
+  document.querySelectorAll('.logo').forEach(function (el) {
+    var exts = ['svg', 'png', 'webp', 'jpg'], i = 0, name = el.dataset.name;
+    var img = new Image();
+    img.alt = name;
+    img.onerror = function () {
+      i++;
+      if (i < exts.length) { img.src = 'assets/logos/' + el.dataset.logo + '.' + exts[i]; return; }
+      img.remove();
+      var w = document.createElement('span');
+      w.className = 'wordmark'; w.textContent = name;
+      el.appendChild(w);
+    };
+    img.src = 'assets/logos/' + el.dataset.logo + '.' + exts[0];
+    el.insertBefore(img, el.firstChild);
+  });
+
+  // Project filters
+  var btns = document.querySelectorAll('.chip-btn'), cards = document.querySelectorAll('.card');
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      cards.forEach(function (c) {
+        c.hidden = b.dataset.f !== 'all' && c.dataset.cat.split(' ').indexOf(b.dataset.f) === -1;
+      });
+    });
+  });
+</script>
 </body>
 </html>
