@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "createdAt": "2026-09-20T10:08:23.963Z",
+        "reason": "assistant decision, not user-confirmed: deliberate single-weight display serif for the English hero/headings, paired with IBM Plex Sans; not one of the faces the rule names as overused"
+      }
+    ]
+  }
+}
